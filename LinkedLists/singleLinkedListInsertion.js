@@ -96,7 +96,34 @@ getElementByIndex(index){
     current=current.next
   }
 }
+// removeBeggining(){
+//   let current=this.head;
 
+//   this.head=current.next;
+//   console.log("The element",current.data ,"is removed")
+// }
+
+removeElementByIndex(index){
+  if(index<0 && index>this.size){
+    return 
+  }
+  let current=this.head;
+  let previous;
+  let count=0;
+ if(index===0){
+  this.head=current.next;
+  console.log("The element",current.data ,"is removed")
+ }else{
+    while(count<index){
+      count++;
+      previous=current;
+      current=current.next;
+    }
+    previous.next=current.next;
+    console.log("Element ",current.data ,"is deleted")
+  }
+
+}
   PrintList() {
     let list = this.head
     while (list) {
@@ -118,5 +145,7 @@ singlell.insertBeggining(8)
  singlell.insertPosition(1, 888)
 
 //singlell.reverseList()
-singlell.getElementByIndex(3);
+//singlell.getElementByIndex(3);
+singlell.removeElementByIndex(0)
+//singlell.removeBeggining()
 singlell.PrintList()
