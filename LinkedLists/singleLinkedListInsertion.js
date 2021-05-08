@@ -52,24 +52,23 @@ class linkedlist {
   // }
   // insert specific position
   insertPosition(pos, data) {
-    if (pos < 0 && pos > this.size) {
-      return
+    if(pos<0 && pos>this.size){
+      return;
     }
-    if (pos === 0) {
-      this.insertBeggining(data)
+    if(pos===0){
+      this.insertBeggining(data);
     }
-
-    const node = new Node(data)
-    let current, previous
-    current = this.head
-    let i = 0
-    while (i < pos) {
-      previous = current
-      i++
-      current = current.next
+    const node = new Node(data);
+    let current,previous;
+    current=this.head;
+    let i=0;
+    while(i<pos){
+      previous=current
+      current=current.next;
+      i++;
     }
-    node.next = current
-    previous.next = node
+    node.next=current;
+    previous.next=node;
   }
 // reverse list
 reverseList(){
@@ -86,29 +85,38 @@ reverseList(){
   }
   this.head=prevNode
 }
+getElementByIndex(index){
+  let count=0;
+  let current=this.head;
+  while(current){
+    if(count===index){
+      console.log("The element is found at the loaction of",index , current.data)
+    }
+    count++;
+    current=current.next
+  }
+}
 
   PrintList() {
     let list = this.head
-    //  let listLast=this.tail
     while (list) {
       console.log(list.data)
-      // console.log(list)
-      //   console.log("line-37",listLast)
       list = list.next
     }
   }
 }
 const singlell = new linkedlist()
-// singlell.insertBeggining(12)
-// singlell.insertBeggining(92)
-// singlell.insertBeggining(10)
-// singlell.insertBeggining(18)
-// singlell.insertBeggining(8)
-singlell.insertionEnd(128)
-singlell.insertionEnd(92)
+singlell.insertBeggining(12)
+singlell.insertBeggining(92)
+singlell.insertBeggining(10)
+singlell.insertBeggining(18)
+singlell.insertBeggining(8)
+// singlell.insertionEnd(128)
+// singlell.insertionEnd(92)
 
-singlell.insertPosition(2, 999)
-singlell.insertPosition(1, 888)
+ singlell.insertPosition(2, 999)
+ singlell.insertPosition(1, 888)
 
-singlell.reverseList()
+//singlell.reverseList()
+singlell.getElementByIndex(3);
 singlell.PrintList()
